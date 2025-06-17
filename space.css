@@ -1,0 +1,92 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
+    color: #0f0;
+    /* Starfield background */
+    background-image: 
+        radial-gradient(1px 1px at 25px 35px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 75px 85px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 125px 15px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 175px 65px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 225px 95px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 275px 45px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 325px 75px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 375px 25px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 425px 55px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 475px 85px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 525px 15px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 575px 45px, white, rgba(0,0,0,0));
+    background-size: 600px 600px;
+    animation: stars 60s linear infinite;
+}
+
+@keyframes stars {
+    from { background-position: 0 0; }
+    to { background-position: -600px 600px; }
+}
+
+#board {
+    background-color: rgba(0, 0, 0, 0.85); /* Slightly transparent */
+    border: 2px solid #0f0;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    display: block;
+    margin: 20px auto;
+}
+
+/* Optional: Add some retro scanlines for authentic arcade feel */
+#board::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0, 255, 0, 0.03),
+            rgba(0, 255, 0, 0.03) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+    pointer-events: none;
+}
+
+/* Score display styling */
+#score {
+    font-size: 24px;
+    text-shadow: 0 0 5px #0f0;
+    margin: 10px 0;
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #0f0;
+}
+
+/* Game over screen styling */
+#gameOver {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border: 3px solid #f00;
+    color: #f00;
+    font-size: 24px;
+    display: none;
+    z-index: 100;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+/* Controls hint */
+#controls {
+    font-size: 14px;
+    color: #0f0;
+    margin-top: 10px;
+    opacity: 0.7;
+}
